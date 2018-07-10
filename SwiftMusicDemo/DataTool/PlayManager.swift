@@ -46,7 +46,6 @@ class PlayManager: NSObject{
 //
          playItem.addObserver(self, forKeyPath:"status", options: NSKeyValueObservingOptions.new, context:&PlayManager.playManger.myContext);
         
-     //   PlayManager.playManger.player?.replaceCurrentItem(with: playItem)
        
         NotificationCenter.default.addObserver(self, selector: #selector(playEnd), name:NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil);
     }
@@ -56,10 +55,6 @@ class PlayManager: NSObject{
         if context == &myContext {
             
             if let newValue:Int = change?[NSKeyValueChangeKey.newKey] as? Int {
-                
-                print(newValue);
-                
-                print(AVPlayerItemStatus.readyToPlay.rawValue)
              
                 //得到的属性的改变：
         
@@ -188,18 +183,13 @@ class PlayManager: NSObject{
     func pauseMusic() ->Void {
         
         PlayManager.playManger.player?.pause();
-        
         self.stopTimer();
     }
-    
-    
     //播放结束：
     @objc func playEnd() -> Void {
-        
         // 改变播放的状态：
         self.stopTimer();
     }
-    
     //执行滑竿的控制歌曲的进度的方法
     func byCurrentTimeWithProgress(progress:CGFloat) -> Void {
         self.pauseMusic();
@@ -209,7 +199,6 @@ class PlayManager: NSObject{
                self.playMusic();
             }
         })
-    
     }
     //拆分歌词：
     func fetchLyricSectionWithLyricString(lyricStr:String) -> NSMutableArray {
@@ -226,8 +215,6 @@ class PlayManager: NSObject{
             
             lyricModel.lyricString = arrTmp.last! as NSString;
             
-            print(arrTmp.last! as NSString);
- 
             let tmpFirstString:NSString = arrTmp.first! as NSString
             
             if tmpFirstString.length > 1 {
@@ -240,7 +227,6 @@ class PlayManager: NSObject{
                 
                 lyricModel.lyricTime = timeArray.first! as NSString;
                 
-                print(lyricModel.lyricTime);
                 
             }
             self.arrayLyricModel.add(lyricModel);
