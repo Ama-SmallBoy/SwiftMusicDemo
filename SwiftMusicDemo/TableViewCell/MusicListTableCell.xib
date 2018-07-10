@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="146" id="KGk-i7-Jjw" customClass="MusicListTableCell" customModule="SwiftMusicDemo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="146"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="145.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="songImg" translatesAutoresizingMaskIntoConstraints="NO" id="sYI-rr-0bK">
+                        <rect key="frame" x="15" y="10" width="100" height="125.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="SM7-jv-Ynf"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="丑八怪" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UpT-Fh-V74">
+                        <rect key="frame" x="128" y="20" width="46" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="nqo-jB-D5O"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="演唱：李荣浩" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uM3-UW-1u9">
+                        <rect key="frame" x="128" y="77" width="86" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="sYI-rr-0bK" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="7vh-pB-6va"/>
+                    <constraint firstItem="sYI-rr-0bK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="ANd-ni-iO4"/>
+                    <constraint firstItem="uM3-UW-1u9" firstAttribute="top" secondItem="UpT-Fh-V74" secondAttribute="bottom" constant="36" id="Akv-1e-Ytr"/>
+                    <constraint firstItem="uM3-UW-1u9" firstAttribute="leading" secondItem="UpT-Fh-V74" secondAttribute="leading" id="Iyj-v6-YgT"/>
+                    <constraint firstItem="sYI-rr-0bK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="KJf-tc-rb5"/>
+                    <constraint firstItem="UpT-Fh-V74" firstAttribute="top" secondItem="sYI-rr-0bK" secondAttribute="top" constant="10" id="QxB-M5-faW"/>
+                    <constraint firstItem="UpT-Fh-V74" firstAttribute="leading" secondItem="sYI-rr-0bK" secondAttribute="trailing" constant="13" id="ff8-bc-YnE"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="imgHeadView" destination="sYI-rr-0bK" id="irB-Pa-X5q"/>
+                <outlet property="singerName" destination="uM3-UW-1u9" id="foO-hD-jE1"/>
+                <outlet property="songNameLabel" destination="UpT-Fh-V74" id="dmq-Uw-05g"/>
+            </connections>
+            <point key="canvasLocation" x="69" y="-43"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="songImg" width="659" height="583"/>
+    </resources>
+</document>
