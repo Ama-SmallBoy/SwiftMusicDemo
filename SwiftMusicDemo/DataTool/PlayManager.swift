@@ -38,15 +38,8 @@ class PlayManager: NSObject{
         
         PlayManager.playManger.player = AVPlayer(playerItem:playItem)
     
-//        if ((PlayManager.playManger.player?.currentItem ) != nil) {
-//
-//            PlayManager.playManger.player?.currentItem?.removeObserver(self, forKeyPath:"status", context: &PlayManager.playManger.myContext)
-//
-//        }
-//
-         playItem.addObserver(self, forKeyPath:"status", options: NSKeyValueObservingOptions.new, context:&PlayManager.playManger.myContext);
+        playItem.addObserver(self, forKeyPath:"status", options: NSKeyValueObservingOptions.new, context:&PlayManager.playManger.myContext);
         
-       
         NotificationCenter.default.addObserver(self, selector: #selector(playEnd), name:NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil);
     }
     
@@ -91,9 +84,7 @@ class PlayManager: NSObject{
             super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
         }
     }
-
-
-
+    
     //播放进度显示：
     @objc func progressAction() -> Void {
         
@@ -174,9 +165,7 @@ class PlayManager: NSObject{
     func playMusic() ->Void {
         
         PlayManager.playManger.player?.play();
-        
-        self.startTimer();
-    
+        self.startTimer()
     }
     
     //暂停
@@ -189,6 +178,8 @@ class PlayManager: NSObject{
     @objc func playEnd() -> Void {
         // 改变播放的状态：
         self.stopTimer();
+        self.delegate?.playMusicManagerEnd();
+        
     }
     //执行滑竿的控制歌曲的进度的方法
     func byCurrentTimeWithProgress(progress:CGFloat) -> Void {
@@ -240,7 +231,7 @@ class PlayManager: NSObject{
         var  indexTmp:NSInteger = -1;
 
         for (index,value) in self.arrayLyricModel.enumerated() {
-            
+
             let lyricmodel:LyricModel = value as! LyricModel;
             
             if lyricmodel.lyricTime.isEqual(to: currentTime){
